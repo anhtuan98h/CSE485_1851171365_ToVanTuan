@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 12, 2020 lúc 09:53 AM
+-- Thời gian đã tạo: Th10 13, 2020 lúc 10:55 AM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.2.32
 
@@ -130,25 +130,26 @@ INSERT INTO `thisinh` (`id`, `hoten`, `gioitinh`, `ngaysinh`, `dantoc`, `tongiao
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
-  `permission` int(11) DEFAULT 0,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `createdate` datetime DEFAULT NULL,
-  `del_flag` tinyint(1) DEFAULT 0
+  `permission` varchar(5) DEFAULT 'user',
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `createdate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`user_id`, `permission`, `username`, `password`, `email`, `createdate`, `del_flag`) VALUES
-(17, 1, 'tuan1998', '7f465a43b21002c31b291dbe09bf554c', 'anhtuan1998@gmail.com', '2020-10-25 23:12:17', 0),
-(18, 0, 'giatuan', '29356c345c3b8390a835574f5fb14df0', 'anhtuan@gmail.com', '2020-10-26 07:12:55', 0),
-(20, 1, 'tuan98', '5bb8d4fb52afcb598ea35bf794f4c8b9', 'thanhhien@gmail.com', '2020-10-26 07:14:27', 0),
-(21, 1, 'tovantuan', '29356c345c3b8390a835574f5fb14df0', 'tovantuan@gmail.com', '2020-10-26 07:17:44', 0),
-(25, 0, 'tuandeptrai', '15f8182445bac21b05802649a8a698e7', 'tuanhien@gmail.com', '2020-11-02 05:42:55', 0),
-(28, 1, 'khoadao15', '97107ccb890d9ebe97016ec9120fadf0', 'khoadao15@gmail.com', '2020-11-12 07:47:24', 0);
+INSERT INTO `user` (`user_id`, `permission`, `username`, `password`, `email`, `createdate`) VALUES
+(17, 'user', 'tuan1998', 'anhtuan1998@gmail.com', 'anhtuan1998@gmail.com', '2020-10-25 23:12:17'),
+(18, 'user', 'giatuan', 'anhtuan@gmail.com', 'anhtuan@gmail.com', '2020-10-26 07:12:55'),
+(20, 'user', 'tuan98', '5bb8d4fb52afcb598ea35bf794f4c8b9', 'thanhhien@gmail.com', '2020-10-26 07:14:27'),
+(21, 'admin', 'tovantuan', '29356c345c3b8390a835574f5fb14df0', 'tovantuan@gmail.com', '2020-10-26 07:17:44'),
+(25, 'user', 'tuandeptrai', '15f8182445bac21b05802649a8a698e7', 'tuanhien@gmail.com', '2020-11-02 05:42:55'),
+(28, 'user', 'khoadao15', '97107ccb890d9ebe97016ec9120fadf0', 'khoadao15@gmail.com', '2020-11-12 07:47:24'),
+(33, 'user', 'thientuan', '745ad54b4391b2506425a5a843466bbd', 'thientuan@gmail.com', NULL),
+(34, 'admin', 'daominhkhoa1500', 'khoaga123@gmail.com', 'khoaga123@gmail.com', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -206,7 +207,7 @@ ALTER TABLE `thisinh`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
